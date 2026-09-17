@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장소공유</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .main-banner {
+            background-color: #212529;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .main-banner h1 {
+            font-size: 45px;
+            font-weight: bold;
+        }
+        .mian-banner p {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- 네비게이션 바 -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="/">
+                드론 정보
+            </a>
+
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link" href="/">
+                        홈
+                    </a>
+
+                    <a class="nav-link" href="{% url 'flight_tap' %}">
+                        비행 지도
+                    </a>
+
+                    <a class="nav-link" href="{% url 'place_share' %}">
+                        장소 공유
+                    </a>
+
+                    <a class="nav-link" href="{% url 'drone_trading' %}">
+                        중고거래
+                    </a>
+
+                    <a class="nav-link active" href="{% url 'kakaotalk_chat' %}">
+                        커뮤니티
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- 메인 배너 -->
+
+    <section class="main-banner">
+
+        <h1>촬영했던 장소 공유</h1>
+
+        <p>
+            자유롭게 자신이 비행하기 좋았던 장소를 공유하세요
+        </p>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous">
+    </script>
+
+
+</body>
+</html>

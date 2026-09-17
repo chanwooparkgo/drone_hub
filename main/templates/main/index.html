@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>드론정보</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+
+    <style>
+
+        body{
+            background-color: #f8f9fa;
+        }
+
+        .main-banner{
+            background-color: #212529;
+            color: white;
+            /*padding: 100px 20px;*/
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .main-banner h1{
+            font-size: 55px;
+            font-weight: bold;
+        }
+
+        .main-banner p{
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .feature-card{
+            transition: 0.3s;
+        }
+
+        .feature-card:hover{
+            transform: translateY(-5px);
+        }
+        /* 잘못된 css선택자 */
+        
+        /* .class="container mt-5"{
+            overflow: auto;
+        }*/
+
+        .card-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                드론 정보
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link active" href="#">
+                        홈
+                    </a>
+
+                    <a class="nav-link" href="{% url 'flight_tap' %}">
+                        비행 지도
+                    </a>
+
+                    <!--<a class="nav-link" href="#">
+                        풍속 정보
+                    </a>-->
+
+                    <a class="nav-link" href="{% url 'place_share' %}">
+                        장소 공유
+                    </a>
+
+                    <a class="nav-link" href="{% url 'drone_trading' %}">
+                        중고거래
+                    </a>
+
+                    <a class="nav-link" href="{% url 'kakaotalk_chat' %}">
+                        커뮤니티
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- 메인 배너 -->
+    <section class="main-banner">
+
+        <h1>드론 정보 & 커뮤니티</h1>
+
+    </section>
+
+    <!-- 기능 카드 -->
+    <div class="container mt-5">
+
+        <div class="row g-4">
+
+            <!-- 카드 1 -->
+            <div class="col-md-6">
+                <a href="{% url 'flight_tap' %}" class="text-decoration-none text-dark">
+                    <div class="card shadow-sm feature-card h-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="비행가능지역과 풍속정보를 확인 할 수 있습니다">
+
+                        <div class="card-body">
+
+                                <h3>비행 가능 지역(참고용)</h3>
+
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="col-md-6">
+                <a href="{% url 'place_share' %}" class="text-decoration-none text-dark">
+
+                    <div class="card shadow-sm feature-card h-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="다른 이에게도 이 비행 장소를 추천하신다면 공유헤주세요">
+
+                        <div class="card-body">
+
+                            <h3>드론 촬영한 장소 공유</h3>
+
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="col-md-6">
+                <a href="{% url 'drone_trading' %}" class="text-decoration-none text-dark">
+
+                    <div class="card shadow-sm feature-card h-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="중고거래 탭입니다">
+    
+                        <div class="card-body">
+
+                            <h3>드론 중고거래</h3>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+
+            <!-- 카드 4 -->
+            <div class="col-md-6">
+
+                <a href="{% url 'kakaotalk_chat' %}"
+                   class="text-decoration-none text-dark">
+
+                    <div class="card shadow-sm feature-card h-100"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="카톡 오픈챗 정보는 이곳에 있습니다">
+
+                        <div class="card-body">
+
+                            <h3>드론 모임 링크</h3>
+
+                        </div>
+
+                    </div>
+                </a>    
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+    <script>
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl =>
+        new bootstrap.Tooltip(tooltipTriggerEl)
+    )
+
+    </script>
+</body>
+</html>

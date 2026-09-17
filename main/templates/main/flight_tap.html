@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>지도</title>
+
+<style>
+
+    body{
+    margin:0;
+    overflow: auto;
+    }
+
+    .container{
+        display:flex;
+    }
+
+    #map{
+        flex:1;
+        height: 97vh;
+    }
+    .sidebar{
+        width:300px;
+        height:100vh;
+        padding: 20px;
+        box-sizing:border-box;
+        border-left: 1px solid;
+        background-color: #00D8FF;
+    }
+    .btn{
+        border: none;
+        display:block;
+        width:100%;
+        background-color: #FFFFFF;
+    }
+    .home {
+        margin-top: -50px;
+        margin-bottom: 50px;
+        margin-left: 150px;
+        padding: 10px;
+        border-radius: 10px;
+        color: #000000;
+        background-color: #FF007F;
+    }
+
+
+    .panel-box{
+        margin-bottom:65px;
+        padding: 15px;
+        border-radius:10px;
+        background-color: #BDBDBD;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div id="map"></div>
+        <div class="sidebar">
+            <div class="panel-box">
+                <button class="btn">
+                    <h3>비행지역검색</h3>
+                </button>
+            </div>
+            <div class="panel-box">
+                <button class="btn">
+                    <h3>풍속</h3>
+                </button>
+            </div>
+            <div class="panel-box">
+                <button class="btn" id="cloca">
+                    <h3>현 위치 검색</h3>
+                </button>
+            </div>
+            <div class="panel-box">
+                <button class=btn>
+                    <h3>거리 반경</h3>
+                </button>
+            </div>
+            <div class=panel-box>
+                <button class="btn">
+                    <a href="https://drone.onestop.go.kr/" target="_blank">
+                        <h3>드론원스톱<br>
+                            바로가기</h3>
+                    </a>
+                </button>
+            </div>
+            <div>
+                <button class="home">
+                    <a href="/">
+                        홈으로 이동
+                    </a>
+                </button>
+            </div>
+        </div>
+	</div>
+
+
+    <script>
+
+        //현 위치 검색 버튼
+        //현위치마커 전역변수
+        var marker;
+
+        //현위치검색버튼 알림창 코드
+        var currentBtn = document.getElementById("cloca");
+
+        currentBtn.addEventListener("click", function() {
+
+            alert("현위치 검색 버튼 클릭");
+
+        });
+
+        //브라우저 위치 가져오는 코드
+        currentBtn.addEventListener("click", function() {
+
+        navigator.geolocation.getCurrentPosition(
+            
+            function(position){
+
+            console.log("위도", position.coords.latitude);
+            console.log("경도", position.coords.longitude);
+            
+
+                //카카오 현 위치 좌표 코드
+                var moveLatLon = new kakao.maps.LatLng(
+                    position.coords.latitude,
+                    position.coords.longitude
+                );
+
+                map.setCenter(moveLatLon);
+
+                //마커생성
+
+                if(marker){
+                    marker.setMap(null);
+                }
+                marker = new kakao.maps.Marker({
+                    position: moveLatLon
+                });
+                //지도에 마커 표시 코드
+                marker.setMap(map);
+
+                
+
+            },
+            function(error){
+                console.log("위치오류");
+                console.log(error);
+            }
+
+            );
+
+           
+
+        });
+    </script>
+
+
+
+
+
+
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4c3843c66b5c31428591b7191c19d622"></script>
+	<script>
+        //지도생성코드
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.5119, 127.1043),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
+</body>
+</html>
